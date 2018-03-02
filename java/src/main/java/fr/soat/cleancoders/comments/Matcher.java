@@ -1,4 +1,4 @@
-package fr.soat.cleancoders;
+package fr.soat.cleancoders.comments;
 
 class Matcher {
 
