@@ -23,7 +23,6 @@ class PreserveWholeObject {
             this.range = range;
         }
 
-
         boolean wihtinRange(int low, int high) {
             return (low >= range.getLow() && high <= range.getHigh());
         }

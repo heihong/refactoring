@@ -1,7 +1,6 @@
 package fr.soat.cleancoders.examples;
 
 class ReplaceParameterWithMethod {
-
     private int quantity;
     private int itemPrice;
 
@@ -12,8 +11,7 @@ class ReplaceParameterWithMethod {
 
     double getPrice(){
         int basePrice = quantity * itemPrice;
-        int discountLevel = getDiscountLevel();
-        double finalPrice = discountedPrice(basePrice, discountLevel);
+        double finalPrice = discountedPrice(basePrice);
         return finalPrice;
     }
 
@@ -21,7 +19,9 @@ class ReplaceParameterWithMethod {
         return quantity > 100 ? 2 : 1;
     }
 
-    private double discountedPrice(int basePrice, int discountLevel) {
+    private double discountedPrice(int basePrice) {
+        int discountLevel = getDiscountLevel();//smell
+
         if (discountLevel == 2)
             return basePrice * 0.1;
 
