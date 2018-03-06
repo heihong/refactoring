@@ -1,14 +1,14 @@
-package fr.soat.cleancoders.exo5;
+package fr.soat.cleancoders.exo4;
 
 class Game {
 
-    public StringBuffer board;
+    StringBuffer board;
 
     Game(String s) {
         board = new StringBuffer(s);
     }
 
-    public Game(StringBuffer s, int position, char player) {
+    private Game(StringBuffer s, int position, char player) {
         board = new StringBuffer(s);
         board.append(s);
         board.setCharAt(position, player);
@@ -28,7 +28,6 @@ class Game {
                 return i;
         }
         return -1;
-
     }
 
     char winner() {

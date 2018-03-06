@@ -2,12 +2,19 @@ package fr.soat.cleancoders.exo2;
 
 import java.util.Properties;
 
-public class TimeProperties {
+class TimeProperties {
 
     private int monitorTime;
     private int departureOffset;
 
-    public void getTimes(Properties props) throws Exception { // FIXME: 02/03/2018 Add test suite
+    TimeProperties() { }
+
+    private TimeProperties(int departureOffset, int monitorTime) {
+        this.departureOffset = departureOffset;
+        this.monitorTime = monitorTime;
+    }
+
+    TimeProperties getTimes(Properties props) throws Exception {
         String valueString;
         int value;
 
@@ -34,11 +41,11 @@ public class TimeProperties {
 
         monitorTime = value;
 
-
         valueString = props.getProperty("departure");
         if (valueString == null)
             throw new MissingTimePropertiesException("departure offset");
 
+        value = Integer.parseInt(valueString);
         if (value <= 0)
             throw new MissingTimePropertiesException("departure > 0");
 
@@ -47,5 +54,7 @@ public class TimeProperties {
             throw new MissingTimePropertiesException("departure % checkInterval");
 
         departureOffset = value;
+        return new TimeProperties(departureOffset, monitorTime );
     }
+
 }

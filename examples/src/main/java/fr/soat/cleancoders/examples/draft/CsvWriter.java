@@ -1,6 +1,6 @@
-package fr.soat.cleancoders.exo4;
+package fr.soat.cleancoders.examples.draft;
 
-class CsvWriter {
+class CsvWriter { //// FIXME: 07/03/2018  j'ai un doute dessus - peut-être pas nécessaire
     void write(String[][] lines) {
         for (String[] line : lines)
             writeLine(line);

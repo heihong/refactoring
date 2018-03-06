@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.exo5;
+package fr.soat.cleancoders.exo4;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;

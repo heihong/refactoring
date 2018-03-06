@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.exo4;
+package fr.soat.cleancoders.examples.draft;
 
 import org.junit.Test;
 
