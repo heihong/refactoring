@@ -10,7 +10,7 @@ class IntroduceParameterObject {
         this.entries = entries;
     }
 
-    double getFlowBetween(LocalDate start, LocalDate end) {
+    double getFlowBetween(LocalDate start, LocalDate end, DateRange range) {
         double result = 0;
         for (Entry entry : entries) {
             if (entry.getChargeDate().equals(start) || entry.getChargeDate().equals(end) ||
@@ -47,26 +47,6 @@ class IntroduceParameterObject {
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-
     static class  DateRange{
         private LocalDate start;
         private LocalDate end;
@@ -84,5 +64,4 @@ class IntroduceParameterObject {
             return end;
         }
     }
-*/
 }

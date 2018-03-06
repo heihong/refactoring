@@ -20,7 +20,7 @@ class ReplaceParameterWithMethod {
     }
 
     private double discountedPrice(int basePrice) {
-        int discountLevel = getDiscountLevel();//smell
+        int discountLevel = getDiscountLevel();
 
         if (discountLevel == 2)
             return basePrice * 0.1;
