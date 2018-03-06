@@ -4,7 +4,6 @@ import java.util.Properties;
 
 public class TimeProperties {
 
-    private int checkInterval;
     private int monitorTime;
     private int departureOffset;
 
@@ -20,7 +19,7 @@ public class TimeProperties {
         if (value <= 0)
             throw new MissingTimePropertiesException("monitor interval > 0");
 
-        checkInterval = value;
+        int checkInterval = value;
 
         valueString = props.getProperty("duration");
         if (valueString == null)

@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.StringWriter;
 
-import static org.junit.Assert.assertEquals;
 
 public class PersonClientTest {
     private PersonClient client;

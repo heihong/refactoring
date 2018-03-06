@@ -19,7 +19,7 @@ public class IntroduceParameterObjectTest {
         IntroduceParameterObject ipo = new IntroduceParameterObject(Arrays.asList(firstEntry, secondEntry));
         IntroduceParameterObject.DateRange range = new IntroduceParameterObject.DateRange(sevenDaysAgo, yesterday);
 
-        double result = ipo.getFlowBetween(sevenDaysAgo, yesterday, range);
+        double result = ipo.getFlowBetween(range);
 
         Assertions.assertThat(result).isEqualTo(13d);
     }
@@ -36,7 +36,7 @@ public class IntroduceParameterObjectTest {
 
         LocalDate inSevenDays = LocalDate.now().plusDays(7);
         IntroduceParameterObject.DateRange range = new IntroduceParameterObject.DateRange(yesterday, inSevenDays);
-        double result = ipo.getFlowBetween(yesterday, inSevenDays, range);
+        double result = ipo.getFlowBetween(range);
 
         Assertions.assertThat(result).isEqualTo(8d);
     }
@@ -51,7 +51,7 @@ public class IntroduceParameterObjectTest {
 
         IntroduceParameterObject ipo = new IntroduceParameterObject(Arrays.asList(firstEntry, secondEntry));
         IntroduceParameterObject.DateRange range = new IntroduceParameterObject.DateRange(yesterday, sevenDaysLater);
-        double result = ipo.getFlowBetween(yesterday, sevenDaysLater,range);
+        double result = ipo.getFlowBetween(range);
 
         Assertions.assertThat(result).isEqualTo(13d);
     }

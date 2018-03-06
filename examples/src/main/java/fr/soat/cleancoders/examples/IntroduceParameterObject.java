@@ -2,6 +2,8 @@ package fr.soat.cleancoders.examples;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 class IntroduceParameterObject {
     List<Entry> entries;
@@ -10,16 +12,15 @@ class IntroduceParameterObject {
         this.entries = entries;
     }
 
-    double getFlowBetween(LocalDate start, LocalDate end, DateRange range) {
-        double result = 0;
-        for (Entry entry : entries) {
-            if (entry.getChargeDate().equals(range.getStart())
-                    || entry.getChargeDate().equals(range.getEnd()) ||
-                    (entry.getChargeDate().isAfter(range.getStart()) && entry.getChargeDate().isBefore(range.getEnd())))
+    double getFlowBetween(DateRange range) {
+        return entries()
+                .filter(range.containsChargeDate())
+                .mapToDouble(Entry::getValue)
+                .sum();
+    }
 
-                result += entry.getValue();
-        }
-        return result;
+    private Stream<Entry> entries() {
+        return entries.stream();
     }
 
     static class Entry {
@@ -31,7 +32,7 @@ class IntroduceParameterObject {
             this.chargeDate = chargeDate;
         }
 
-        public double getValue() {
+        double getValue() {
             return value;
         }
 
@@ -39,7 +40,7 @@ class IntroduceParameterObject {
             this.value = value;
         }
 
-        public LocalDate getChargeDate() {
+        LocalDate getChargeDate() {
             return chargeDate;
         }
 
@@ -52,17 +53,27 @@ class IntroduceParameterObject {
         private LocalDate start;
         private LocalDate end;
 
-        public DateRange(LocalDate start, LocalDate end) {
+        DateRange(LocalDate start, LocalDate end) {
             this.start = start;
             this.end = end;
         }
 
-        public LocalDate getStart() {
+        LocalDate getStart() {
             return start;
         }
 
-        public LocalDate getEnd() {
+        LocalDate getEnd() {
             return end;
+        }
+
+        private boolean containsChargeDate(LocalDate chargedDate) {
+            return chargedDate.equals(getStart())
+                    || chargedDate.equals(getEnd()) ||
+                    (chargedDate.isAfter(getStart()) && chargedDate.isBefore(getEnd()));
+        }
+
+        private Predicate<Entry> containsChargeDate() {
+            return e -> containsChargeDate(e.getChargeDate());
         }
     }
 }
