@@ -13,7 +13,7 @@ class IntroduceParameterObject {
     double getFlowBetween(LocalDate start, LocalDate end, DateRange range) {
         double result = 0;
         for (Entry entry : entries) {
-            if (entry.getChargeDate().equals(start) || entry.getChargeDate().equals(end) ||
+            if (entry.getChargeDate().equals(range.getStart()) || entry.getChargeDate().equals(end) ||
                     (entry.getChargeDate().isAfter(start) && entry.getChargeDate().isBefore(end)))
 
                 result += entry.getValue();
