@@ -1,9 +1,9 @@
-package fr.soat.cleancoders.data;
+package fr.soat.cleancoders.exo3;
 
 import java.io.IOException;
 import java.io.Writer;
 
-public class PersonClient {
+class PersonClient {
     void client1(Writer out, Person person) throws IOException {
         out.write(person.first);
         out.write(" ");
@@ -14,14 +14,14 @@ public class PersonClient {
         out.write(person.last);
     }
 
-    public String client2(Person person) {
+    String client2(Person person) {
         String result = person.last + ", " + person.first;
         if (person.middle != null)
             result += " " + person.middle;
         return result;
     }
 
-    public void client3(Writer out, Person person) throws IOException {
+    void client3(Writer out, Person person) throws IOException {
         out.write(person.last);
         out.write(", ");
         out.write(person.first);
@@ -31,7 +31,7 @@ public class PersonClient {
         }
     }
 
-    public String client4(Person person) {
+    String client4(Person person) {
         return person.last + ", " +
                 person.first +
                 ((person.middle == null) ? "" : " " + person.middle);

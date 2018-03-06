@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.duplication;
+package fr.soat.cleancoders.exo2;
 
 public class MissingTimePropertiesException extends Exception {
 

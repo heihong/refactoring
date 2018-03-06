@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.comments;
+package fr.soat.cleancoders.exo1;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.data;
+package fr.soat.cleancoders.exo3;
 
 class Person {
     String last;

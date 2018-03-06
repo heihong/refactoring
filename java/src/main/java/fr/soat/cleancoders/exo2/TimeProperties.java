@@ -1,4 +1,4 @@
-package fr.soat.cleancoders.duplication;
+package fr.soat.cleancoders.exo2;
 
 import java.util.Properties;
 
@@ -8,7 +8,7 @@ public class TimeProperties {
     private int monitorTime;
     private int departureOffset;
 
-    public void getTimes(Properties props) throws Exception {
+    public void getTimes(Properties props) throws Exception { // FIXME: 02/03/2018 Add test suite
         String valueString;
         int value;
 
