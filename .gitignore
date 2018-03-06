@@ -2,3 +2,5 @@
 /.idea/
 /java/out/
 /java/.gradle/
+/examples/out/
+/examples/.gradle/
