@@ -1,6 +1,12 @@
 
-/.idea/
+.idea/
+.vs/
+node_modules/
 /java/out/
 /java/.gradle/
 /examples/out/
 /examples/.gradle/
+/csharp/**/bin/
+/csharp/**/obj/
+/csharp/**/*.csproj.user
+/csharp/packages
