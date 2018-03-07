@@ -61,6 +61,9 @@
     <Compile Include="Exo2\Properties.cs" />
     <Compile Include="Exo2\TimeProperties.cs" />
     <Compile Include="Exo2\TimePropertiesTest.cs" />
+    <Compile Include="Exo3\Person.cs" />
+    <Compile Include="Exo3\PersonClient.cs" />
+    <Compile Include="Exo3\PersonClientTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
