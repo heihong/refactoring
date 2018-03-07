@@ -18,7 +18,7 @@ public class PersonClientTest {
 
 
     @Test
-    public void should_write_name_using_different_clients() throws IOException {
+    public void should_write_the_user_identity_using_all_clients_when_the_user_has_no_middle_name() throws IOException {
         Person bobSmith = new Person("Smith", "Bob", null);
 
         StringWriter out = new StringWriter();
@@ -37,7 +37,7 @@ public class PersonClientTest {
     }
 
     @Test
-    public void should_write_the_name_using_differently() throws IOException {
+    public void should_write_the_user_identity_using_all_clients_when_the_user_has_a_middle_name() throws IOException {
         StringWriter out = new StringWriter();
         Person jennyJJones = new Person("Jones", "Jenny", "J");
 
