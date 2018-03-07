@@ -8,12 +8,12 @@ class Matcher {
             if (actual[i] > clipLimit)
                 actual[i] = clipLimit;
 
-            //Check for length differences
-            if (actual.length != expected.length)
-                return false;
+        //Check for length differences
+        if (actual.length != expected.length)
+            return false;
 
-            //Check that each entry within the expected +/- delta
-            for (int i = 0; i < expected.length; i++)
+        //Check that each entry within the expected +/- delta
+        for (int i = 0; i < expected.length; i++)
             if (Math.abs(expected[i] - actual[i]) > delta)
                 return false;
 

@@ -2,14 +2,15 @@ package fr.soat.cleancoders.exo2;
 
 import java.util.Properties;
 
-class TimeProperties {
+public class TimeProperties {
 
     private int monitorTime;
     private int departureOffset;
 
-    TimeProperties() { }
+    TimeProperties() {
+}
 
-    private TimeProperties(int departureOffset, int monitorTime) {
+    TimeProperties(int departureOffset, int monitorTime) {
         this.departureOffset = departureOffset;
         this.monitorTime = monitorTime;
     }
@@ -18,11 +19,7 @@ class TimeProperties {
         String valueString;
         int value;
 
-        valueString = props.getProperty("interval");
-        if (valueString == null)
-            throw new MissingTimePropertiesException("monitor interval");
-
-        value = Integer.parseInt(valueString);
+        value = getProperty(props);
         if (value <= 0)
             throw new MissingTimePropertiesException("monitor interval > 0");
 
@@ -57,4 +54,30 @@ class TimeProperties {
         return new TimeProperties(departureOffset, monitorTime );
     }
 
+    private int getProperty(Properties props) throws MissingTimePropertiesException {
+        String valueString;
+        int value;
+        valueString = props.getProperty("interval");
+        if (valueString == null)
+            throw new MissingTimePropertiesException("monitor interval");
+
+        value = Integer.parseInt(valueString);
+        return value;
+    }
+
+    public int getMonitorTime() {
+        return monitorTime;
+    }
+
+    public void setMonitorTime(int monitorTime) {
+        this.monitorTime = monitorTime;
+    }
+
+    public int getDepartureOffset() {
+        return departureOffset;
+    }
+
+    public void setDepartureOffset(int departureOffset) {
+        this.departureOffset = departureOffset;
+    }
 }
