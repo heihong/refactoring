@@ -1,61 +1,59 @@
-﻿//========================================================================
-// This conversion was produced by the Free Edition of
-// Java to C# Converter courtesy of Tangible Software Solutions.
-// Order the Premium Edition at https://www.tangiblesoftwaresolutions.com
-//========================================================================
+﻿using NFluent;
+using Xunit;
 
 namespace Soat.CleanCoders.Refactoring.Exo4
 {
-	public class GameTest
-	{
+    public class GameTest
+    {
+        [Fact]
+        public void TestDefaultMove()
+        {
+            var game = new Game("XOXOX-OXO");
 
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @Test public void testDefaultMove()
-		public virtual void testDefaultMove()
-		{
-			Game game = new Game("XOXOX-OXO");
+            var result = game.Move('X');
 
-			int result = game.move('X');
+            Check.That(result)
+                 .IsEqualTo(5);
 
-			Assertions.assertThat(result).isEqualTo(5);
+            game   = new Game("XOXOXOOX-");
+            result = game.Move('O');
 
-			game = new Game("XOXOXOOX-");
-			result = game.move('O');
+            Check.That(result)
+                 .IsEqualTo(8);
 
-			Assertions.assertThat(result).isEqualTo(8);
+            game   = new Game("---------");
+            result = game.Move('X');
 
-			game = new Game("---------");
-			result = game.move('X');
+            Check.That(result)
+                 .IsEqualTo(0);
 
-			Assertions.assertThat(result).isEqualTo(0);
+            game   = new Game("XXXXXXXXX");
+            result = game.Move('X');
 
-			game = new Game("XXXXXXXXX");
-			result = game.move('X');
+            Check.That(result)
+                 .IsEqualTo(-1);
+        }
 
-			Assertions.assertThat(result).isEqualTo(-1);
-		}
+        [Fact]
+        public void TestFindWinningMove()
+        {
+            var game = new Game("XO-XX-OOX");
 
+            var result = game.Move('X');
 
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @Test public void testFindWinningMove()
-		public virtual void testFindWinningMove()
-		{
-			Game game = new Game("XO-XX-OOX");
+            Check.That(result)
+                 .IsEqualTo(5);
+        }
 
-			int result = game.move('X');
+        [Fact]
+        public void TestWinConditions()
+        {
+            var game = new Game("---XXX---");
 
-			Assertions.assertThat(result).isEqualTo(5);
-		}
+            var winner = game.Winner();
 
-//JAVA TO C# CONVERTER TODO TASK: Most Java annotations will not have direct .NET equivalent attributes:
-//ORIGINAL LINE: @Test public void testWinConditions()
-		public virtual void testWinConditions()
-		{
-			Game game = new Game("---XXX---");
-
-			char winner = game.winner();
-
-			Assertions.assertThat(winner).isEqualTo('X');
-		}
-	}
+            Check.That(winner)
+                 .IsEqualTo('X');
+        }
+    }
 }

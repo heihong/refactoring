@@ -64,6 +64,8 @@
     <Compile Include="Exo3\Person.cs" />
     <Compile Include="Exo3\PersonClient.cs" />
     <Compile Include="Exo3\PersonClientTest.cs" />
+    <Compile Include="Exo4\Game.cs" />
+    <Compile Include="Exo4\GameTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
