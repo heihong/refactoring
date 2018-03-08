@@ -3,7 +3,7 @@ const assert = require('assert'),
 	console = require('console');
 
 
-let PersonClient = require('../../app/exo3/personClient');
+let PersonClient = require('../../app/exo3/person-client');
 let Person = require('../../app/exo3/person');
 
 

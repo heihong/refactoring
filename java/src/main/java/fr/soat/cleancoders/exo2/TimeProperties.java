@@ -19,7 +19,11 @@ public class TimeProperties {
         String valueString;
         int value;
 
-        value = getProperty(props);
+        valueString = props.getProperty("interval");
+        if (valueString == null)
+            throw new MissingTimePropertiesException("monitor interval");
+
+        value = Integer.parseInt(valueString);
         if (value <= 0)
             throw new MissingTimePropertiesException("monitor interval > 0");
 
@@ -52,17 +56,6 @@ public class TimeProperties {
 
         departureOffset = value;
         return new TimeProperties(departureOffset, monitorTime );
-    }
-
-    private int getProperty(Properties props) throws MissingTimePropertiesException {
-        String valueString;
-        int value;
-        valueString = props.getProperty("interval");
-        if (valueString == null)
-            throw new MissingTimePropertiesException("monitor interval");
-
-        value = Integer.parseInt(valueString);
-        return value;
     }
 
     public int getMonitorTime() {

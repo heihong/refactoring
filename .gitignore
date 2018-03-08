@@ -10,3 +10,5 @@ node_modules/
 /csharp/**/obj/
 /csharp/**/*.csproj.user
 /csharp/packages
+/javascript/node_modules/
+

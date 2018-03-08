@@ -1,5 +1,3 @@
-let Person = require('./person');
-
 function PersonClient() {
 	
 	this.client1 = client1;
