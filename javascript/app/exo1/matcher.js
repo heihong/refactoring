@@ -9,9 +9,7 @@ class Matcher {
 
 
     match(expected, actual){
-        for (let i = 0; i < actual.length; i++)
-            if (this.isSuperior(actual[i], this.clipLimit))
-                actual[i] = this.clipLimit;
+        actual = this.setClipLimit(actual, this.clipLimit);
 
         //Check for length differences
         if (!this.isEqual(actual.length, expected.length))
@@ -34,6 +32,15 @@ class Matcher {
 
     isEqual(actual, expected) {
         return actual == expected;
+    }
+
+    setClipLimit(tab, clipLimit) {
+        for (let i = 0; i < tab.length; i++){
+            if (this.isSuperior(tab[i], clipLimit)){
+                tab[i] = clipLimit;
+            }
+        }
+        return tab;
     }
 }
 module.exports = Matcher;
