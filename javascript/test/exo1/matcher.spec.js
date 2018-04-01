@@ -8,14 +8,14 @@ describe('Matcher', function () {
 	let delta = 5;
 	
 	beforeEach(function () {
-		matcher = new Matcher();
+		matcher = new Matcher(clipLimit, delta);
 	});
 	
 	
 	it('Should *MATCH* The difference between the actual entry and the expected one is below delta', function () {
 		let actual = [12, 55, 25, 110];
 		
-		let matches = matcher.match(expected, actual, clipLimit, delta);
+		let matches = matcher.match(expected, actual);
 		
 		assert.equal(matches, true);
 	});
@@ -23,7 +23,7 @@ describe('Matcher', function () {
 	it('Should *NOT* match when the difference between the actual entry and the expected one is above delta', function () {
 		let actual = [10, 60, 30, 98];
 		
-		let matches = matcher.match(expected, actual, clipLimit, delta);
+		let matches = matcher.match(expected, actual);
 		
 		assert.equal(matches, false);
 	});
@@ -31,7 +31,7 @@ describe('Matcher', function () {
 	it('should *NOT* match when the actual and the expected have different length', function () {
 		let actual = [10, 50, 30];
 		
-		let matches = matcher.match(expected, actual, clipLimit, delta);
+		let matches = matcher.match(expected, actual);
 		
 		assert.equal(matches, false);
 	
